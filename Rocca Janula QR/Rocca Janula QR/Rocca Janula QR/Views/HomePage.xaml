@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:c="clr-namespace:ZXing.Common;assembly=zxing.portable" xmlns:viewmodels="clr-namespace:Rocca_Janula_QR.ViewModels"
+             x:Class="Rocca_Janula_QR.Views.HomePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <d:ZXingBarcodeImageView Grid.Row="1" Grid.Column="1" BarcodeValue="{Binding qr_Value}" >
+                <d:ZXingBarcodeImageView.BarcodeOptions>
+                    <c:EncodingOptions Width="500" Height="500"/>
+                </d:ZXingBarcodeImageView.BarcodeOptions>
+
+            </d:ZXingBarcodeImageView>
+            <Button Grid.Row="2" Grid.Column="1"
+                    Text="Genera QR" FontSize="Large" Command="{Binding OnGenerate}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
